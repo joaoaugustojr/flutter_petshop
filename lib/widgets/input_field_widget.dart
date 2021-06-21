@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_petshop/configs/theme/pallete.dart';
+import 'package:flutter_petshop/configs/theme/pallete_config.dart';
 
 class AppInputField extends StatelessWidget {
   final String hintText;
