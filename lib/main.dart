@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_petshop/configs/theme/assets.dart';
-import 'package:flutter_petshop/configs/theme/pallete.dart';
+import 'package:flutter_petshop/configs/theme/assets_config.dart';
+import 'package:flutter_petshop/configs/theme/pallete_config.dart';
 import 'package:flutter_petshop/screens/auth/login_screen.dart';
 
 void main() {
