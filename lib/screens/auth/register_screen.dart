@@ -20,26 +20,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
         children: [
           AppInputField(
             hintText: "Name",
-            onChanged: (value) {
-              print(value);
-            },
+            onChanged: (value) {},
             icon: Icons.person_outline,
           ),
           SizedBox(height: 15),
           AppInputField(
             hintText: "Phone",
-            onChanged: (value) {
-              print(value);
-            },
+            onChanged: (value) {},
             icon: Icons.smartphone_outlined,
             keyboardType: TextInputType.phone,
           ),
           SizedBox(height: 15),
           AppInputField(
             hintText: "Email",
-            onChanged: (value) {
-              print(value);
-            },
+            onChanged: (value) {},
             icon: Icons.email_outlined,
             keyboardType: TextInputType.emailAddress,
           ),

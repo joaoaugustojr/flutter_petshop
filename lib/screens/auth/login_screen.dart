@@ -23,9 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           AppInputField(
             hintText: "Email",
-            onChanged: (value) {
-              print(value);
-            },
+            onChanged: (value) {},
             icon: Icons.email_outlined,
             keyboardType: TextInputType.emailAddress,
           ),
