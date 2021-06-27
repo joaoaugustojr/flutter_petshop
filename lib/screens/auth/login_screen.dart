@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_petshop/configs/theme/assets_config.dart';
 import 'package:flutter_petshop/configs/theme/pallete_config.dart';
+import 'package:flutter_petshop/screens/auth/templates/login_template.dart';
 import 'package:flutter_petshop/widgets/input_field_widget.dart';
-import 'package:flutter_svg/svg.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -15,91 +14,66 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
+    return LoginTemplate(
+      title: "Welcome Back",
+      titleCard: "Login",
+      fieldsInputs: Column(
+        children: [
+          AppInputField(
+            hintText: "Email",
+            onChanged: (value) {
+              print(value);
+            },
+            icon: Icons.email_outlined,
+            keyboardType: TextInputType.emailAddress,
+          ),
+          SizedBox(height: 15),
+          AppInputField(
+            hintText: "Password",
+            onChanged: (value) {},
+            icon: Icons.lock_outline,
+            obscureText: true,
+          ),
+          SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: 300,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Positioned(
-                      top: 0,
-                      height: 300,
-                      child: SvgPicture.asset(
-                        AppImages.bgDecoration,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Positioned(
-                      top: 80,
-                      child: Image.asset(
-                        AppImages.logo,
-                        height: size.height * .17,
-                      ),
-                    )
-                  ],
-                ),
+              Row(
+                children: [
+                  Checkbox(
+                    value: true,
+                    activeColor: AppPallete.primaryColor,
+                    onChanged: (value) {},
+                  ),
+                  Text(
+                    "Remember Me",
+                    style:
+                        TextStyle(fontSize: 13, color: AppPallete.textColor1),
+                  )
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Column(
-                  children: [
-                    Text(
-                      "Welcome Back!",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: AppPallete.textColor1),
-                    ),
-                    SizedBox(height: 15),
-                    Container(
-                      padding: EdgeInsets.all(25),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        boxShadow: [AppPallete.basicShadow],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Login",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: AppPallete.textColor2,
-                            ),
-                          ),
-                          SizedBox(height: 15),
-                          AppInputField(
-                            hintText: "Email",
-                            onChanged: (value) {
-                              print(value);
-                            },
-                            icon: Icons.email_outlined,
-                            keyboardType: TextInputType.emailAddress,
-                          ),
-                          SizedBox(height: 15),
-                          AppInputField(
-                            hintText: "Password",
-                            onChanged: (value) {},
-                            icon: Icons.lock_outline,
-                            obscureText: true,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 15),
-                  ],
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Forgot Password?",
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: AppPallete.textColor1,
+                  ),
                 ),
               )
             ],
           ),
-        ),
+        ],
       ),
+      actionButton: () {
+        print("**** Authenticate Login");
+      },
+      footerText: "Don't have na account? ",
+      footerTextAction: "Sign Up",
+      footerAction: () {
+        print("**** Route Sign Up");
+      },
     );
   }
 }

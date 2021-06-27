@@ -12,6 +12,12 @@ class AppPallete {
   static Color facebookColor = Color(0xFF2F5FFB);
   static Color googleColor = Color(0xFFF34040);
 
+  // Gradients
+  static Shader bgSplashScreen = LinearGradient(colors: [
+    primaryColor,
+    primaryColorLight,
+  ]).createShader(Rect.fromLTWH(0, 0, 200, 70));
+
   // Shadows
   static BoxShadow basicShadow = BoxShadow(
     color: Color.fromRGBO(0, 0, 0, .15),
