@@ -15,12 +15,18 @@ class AppSocial extends StatelessWidget {
           socialColor: AppPallete.facebookColor,
           pathIcon: AppIcons.facebook,
           widthIcon: 10,
+          openExternalLink: () {
+            print("**** Open link Facebook");
+          },
         ),
         SizedBox(width: 10),
         buildSocialContainer(
           socialColor: AppPallete.googleColor,
           pathIcon: AppIcons.google,
           widthIcon: 20,
+          openExternalLink: () {
+            print("**** Open link Google");
+          },
         ),
       ],
     );
@@ -30,12 +36,13 @@ class AppSocial extends StatelessWidget {
     required Color socialColor,
     required String pathIcon,
     required double widthIcon,
+    required VoidCallback openExternalLink,
   }) {
     return Container(
       width: 45,
       height: 45,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: openExternalLink,
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(
             vertical: 15,

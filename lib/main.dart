@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_petshop/configs/theme/assets_config.dart';
 import 'package:flutter_petshop/configs/theme/pallete_config.dart';
 import 'package:flutter_petshop/screens/auth/login_screen.dart';
-import 'package:flutter_petshop/screens/auth/register_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: AppPallete.primaryColor,
         scaffoldBackgroundColor: AppPallete.backgroundColor,
       ),
-      home: RegisterScreen(),
+      home: LoginScreen(),
     );
   }
 }

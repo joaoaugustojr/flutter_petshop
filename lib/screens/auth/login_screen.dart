@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_petshop/configs/theme/pallete_config.dart';
+import 'package:flutter_petshop/screens/auth/register_screen.dart';
 import 'package:flutter_petshop/screens/auth/templates/login_template.dart';
 import 'package:flutter_petshop/widgets/input_field_widget.dart';
 
@@ -11,6 +12,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isRememberMe = false;
+
   @override
   Widget build(BuildContext context) {
     return LoginTemplate(
@@ -40,9 +43,13 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 children: [
                   Checkbox(
-                    value: true,
+                    value: isRememberMe,
                     activeColor: AppPallete.primaryColor,
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      setState(() {
+                        isRememberMe = !isRememberMe;
+                      });
+                    },
                   ),
                   Text(
                     "Remember Me",
@@ -71,7 +78,14 @@ class _LoginScreenState extends State<LoginScreen> {
       footerText: "Don't have na account? ",
       footerTextAction: "Sign Up",
       footerAction: () {
-        print("**** Route Sign Up");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return RegisterScreen();
+            },
+          ),
+        );
       },
     );
   }

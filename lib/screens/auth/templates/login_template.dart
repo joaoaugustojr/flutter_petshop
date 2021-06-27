@@ -13,6 +13,7 @@ class LoginTemplate extends StatelessWidget {
   final String footerText;
   final String footerTextAction;
   final VoidCallback footerAction;
+  final double initialOffset;
 
   const LoginTemplate({
     Key? key,
@@ -23,6 +24,7 @@ class LoginTemplate extends StatelessWidget {
     required this.footerText,
     required this.footerTextAction,
     required this.footerAction,
+    this.initialOffset = 0,
   }) : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ class LoginTemplate extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
+        controller: ScrollController(initialScrollOffset: initialOffset),
         child: Container(
           child: Column(
             children: [
@@ -167,7 +170,7 @@ class LoginTemplate extends StatelessWidget {
           ),
           AppSocial(),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 15),
             child: RichText(
               text: TextSpan(
                 style: TextStyle(

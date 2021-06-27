@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_petshop/configs/theme/pallete_config.dart';
+import 'package:flutter_petshop/screens/auth/login_screen.dart';
 import 'package:flutter_petshop/screens/auth/templates/login_template.dart';
 import 'package:flutter_petshop/widgets/input_field_widget.dart';
 
@@ -59,8 +59,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
       footerText: "Already have na account? ",
       footerTextAction: "Login here",
       footerAction: () {
-        print("**** Route Login");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return LoginScreen();
+            },
+          ),
+        );
       },
+      initialOffset: 100,
     );
   }
 }
