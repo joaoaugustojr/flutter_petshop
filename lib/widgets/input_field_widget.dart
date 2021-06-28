@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_petshop/configs/theme/pallete_config.dart';
 
-class AppInputField extends StatelessWidget {
+class AppInputField extends StatefulWidget {
   final String hintText;
   final ValueChanged onChanged;
   final IconData icon;
@@ -18,6 +18,12 @@ class AppInputField extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _AppInputFieldState createState() => _AppInputFieldState();
+}
+
+class _AppInputFieldState extends State<AppInputField> {
+  bool hidePassword = true;
+  @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 15, right: 5),
@@ -27,30 +33,19 @@ class AppInputField extends StatelessWidget {
         boxShadow: [AppPallete.basicShadow],
       ),
       child: TextField(
-        textAlignVertical: obscureText ? TextAlignVertical.center : null,
-        onChanged: onChanged,
+        textAlignVertical: widget.obscureText ? TextAlignVertical.center : null,
+        onChanged: widget.onChanged,
         cursorColor: AppPallete.primaryColor,
-        obscureText: obscureText,
-        keyboardType: keyboardType ?? TextInputType.text,
+        obscureText: hidePassword && widget.obscureText,
+        keyboardType: widget.keyboardType ?? TextInputType.text,
         decoration: InputDecoration(
           icon: Icon(
-            icon,
+            widget.icon,
             color: AppPallete.iconsColor,
             size: 24,
           ),
-          suffixIcon: obscureText
-              ? IconButton(
-                  onPressed: () {
-                    print("aqui");
-                  },
-                  icon: Icon(
-                    Icons.visibility,
-                    color: AppPallete.iconsColor,
-                    size: 24,
-                  ),
-                )
-              : null,
-          hintText: hintText,
+          suffixIcon: buildIconVisibility(obscureText: widget.obscureText),
+          hintText: widget.hintText,
           hintStyle: TextStyle(
             color: AppPallete.placeholderColor,
             fontSize: 15,
@@ -59,5 +54,22 @@ class AppInputField extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  buildIconVisibility({required bool obscureText}) {
+    return obscureText
+        ? IconButton(
+            onPressed: () {
+              setState(() {
+                hidePassword = !hidePassword;
+              });
+            },
+            icon: Icon(
+              hidePassword ? Icons.visibility_off : Icons.visibility,
+              color: AppPallete.iconsColor,
+              size: 24,
+            ),
+          )
+        : null;
   }
 }

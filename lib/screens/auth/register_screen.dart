@@ -62,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         );
       },
-      initialOffset: 100,
+      initialOffset: 50,
     );
   }
 }

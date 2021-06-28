@@ -47,12 +47,12 @@ class LoginTemplate extends StatelessWidget {
 
   Container buildHeaderContainer(Size size) {
     return Container(
-      height: 290,
+      height: 250,
       child: Stack(
         alignment: Alignment.center,
         children: [
           Positioned(
-            top: -30,
+            top: -45,
             height: 300,
             child: SvgPicture.asset(
               AppImages.bgDecoration,
